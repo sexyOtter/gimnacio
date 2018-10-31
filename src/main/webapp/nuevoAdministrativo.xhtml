@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<ui:composition template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="title">
+		Administrativos
+	</ui:define>
+	<ui:define name="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-8 col-xs-offset-2 text-center">
+					<h2 id="titulo" class="text-center">
+						<h:outputText rendered="#{!administrativoMB.editMode}" value="Nuevo Empleado Administrativo">
+						</h:outputText>
+						<h:outputText rendered="#{administrativoMB.editMode}" value="Editar administrativo #{administrativoMB.administrativo.nombre}">
+						</h:outputText>
+					</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1">
+					<h:form>
+						<h:messages styleClass="list-group"
+							warnClass="list-group-item list-group-item-danger"
+							errorClass="list-group-item list-group-item-danger"
+							infoClass="list-group-item list-group-item-success" />
+						<div class="row">
+							<div class="col-md-6 form-group">
+								<label>Nombre</label>
+								<h:inputText type="text" label="nombre" id="nombre"
+									p:placeholder="" p:data-minlength="6"
+									value="#{administrativoMB.administrativo.nombre}" styleClass="form-control"
+									p:autocomplete="new-password" />
+							</div>
+							<div class="col-md-6 form-group">
+								<label>Apellido</label>
+								<h:inputText type="text" label="apellido" id="apellido"
+									p:placeholder="" value="#{administrativoMB.administrativo.apellido}"
+									styleClass="form-control" />
+							</div>
+							<div class="col-md-6 form-group">
+								<label>Nro. Empleado</label>
+								<h:inputText p:type="text" label="nroEmpleado" id="nroEmpleado"
+									p:placeholder="" value="#{administrativoMB.administrativo.nroEmpleado}"
+									styleClass="form-control" />
+							</div>
+							<div class="col-md-6 form-group">
+								<label>DNI</label>
+								<h:inputText p:type="text" label="dni" id="dni"
+									p:placeholder="" value="#{administrativoMB.administrativo.dni}"
+									styleClass="form-control" />
+							</div>
+							<div class="col-md-6 form-group">
+								<label>Email</label>
+								<h:inputText p:type="email" label="mail" id="mail"
+									p:placeholder="" value="#{administrativoMB.administrativo.mail}"
+									styleClass="form-control" />
+							</div>
+							<div class="col-md-6 form-group">
+								<label>Domicilio</label>
+								<h:inputText p:type="text" label="domicilio" id="domicilio"
+									p:placeholder="" value="#{administrativoMB.administrativo.domicilio}"
+									styleClass="form-control" />
+							</div>
+							<div class="col-md-6 form-group">
+								<label>Sueldo Basico</label>
+								<h:inputText p:type="text" label="sueldoBasico" id="sueldoBasico"
+									p:placeholder="" value="#{administrativoMB.administrativo.sueldoBasico}"
+									styleClass="form-control" />
+							</div>
+							<div class="col-md-6 form-group">
+								<label>Presentismo</label>
+								<h:inputText p:type="text" label="presentismo" id="presentismo"
+									p:placeholder="" value="#{administrativoMB.administrativo.presentismo}"
+									styleClass="form-control" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="text-right">
+								<h:outputLink styleClass="btn btn-primary"
+									value="admAdministrativo.xhtml">Volver</h:outputLink>
+								<h:commandLink
+									rendered="#{!administrativoMB.editMode}"
+									styleClass="btn btn-success"
+									action="#{administrativoMB.create()}"
+									p:data-click-on="enter">
+										Crear
+								</h:commandLink>
+								<h:commandLink
+									rendered="#{administrativoMB.editMode}" 
+									styleClass="btn btn-success"
+									action="#{administrativoMB.update()}"
+									p:data-click-on="enter">
+									Actualizar
+								</h:commandLink>
+							</div>
+						</div>
+					</h:form>
+					<h:form>
+						
+						
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

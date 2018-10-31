@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/WEB-INF/template/template.xhtml">
+	<ui:define name="title">
+		Gimnacio
+	</ui:define>
+	<ui:define name="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 text-center">
+                <h2>Menu</h2>
+            </div>
+        </div>
+        <div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="flex-container">
+					<h:panelGroup styleClass="flex-item" layout="block">
+						<h:outputLink styleClass="main-button" value="admSocio.xhtml">
+							<div class="round-btn">
+								<i class="fa fa-user fa-4x" aria-hidden="true"></i>
+							</div>
+							<p> Manejo de Socios</p>
+						</h:outputLink>
+					</h:panelGroup>
+					<h:panelGroup styleClass="flex-item" layout="block">
+						<h:outputLink styleClass="main-button" value="admAdministrativo.xhtml">
+							<div class="round-btn">
+								<i class="fa fa-building fa-4x" aria-hidden="true"></i>
+							</div>
+							<p> Manejo Administrativos</p>
+						</h:outputLink>
+					</h:panelGroup>
+					<h:panelGroup styleClass="flex-item" layout="block">
+						<h:outputLink styleClass="main-button" value="admProfesor.xhtml">
+							<div class="round-btn">
+								<i class="fa fa-apple fa-4x" aria-hidden="true"></i>
+							</div>
+							<p> Manejo Profesores</p>
+						</h:outputLink>
+					</h:panelGroup>
+					<h:panelGroup styleClass="flex-item" layout="block">
+						<h:outputLink styleClass="main-button" value="admSocio.xhtml">
+							<div class="round-btn">
+								<i class="fa fa-usd fa-4x" aria-hidden="true"></i>
+							</div>
+							<p>Cobranza</p>
+						</h:outputLink>
+					</h:panelGroup>
+				</div>
+			</div>
+        </div>
+    </div>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<ui:composition template="/WEB-INF/template/template.xhtml">
+	<ui:define name="title">
+		Manejo de Socios
+	</ui:define>
+	<ui:define name="content">
+    <div class="container">
+       <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 text-center">
+                <h2>Manejo de Clases</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 text-right">
+	            <h:form>
+			       <h:commandLink styleClass="btn btn-success" action="#{tipoDeClaseMB.showCreateView()}">Nuevo tipo de clase
+			 	      <i class="fa fa-plus"></i>
+			       </h:commandLink>
+			        <h:commandLink styleClass="btn btn-success" action="#{claseMB.showCreateView()}">Nueva clase
+			 	      <i class="fa fa-plus"></i>
+			       </h:commandLink>
+		       </h:form>	
+            </div>            
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+            	<h4>Tipos de clase</h4>
+            	<h:form>
+				<h:dataTable value="#{tipoDeClaseMB.all}"  var="tipoDeClase" styleClass="table">
+				    <h:column>
+				      <f:facet name = "header">Nombre</f:facet>
+					  #{tipoDeClase.nombre}
+				   </h:column>	
+				   <h:column>
+				      <f:facet name = "header">Hoas</f:facet>
+					  #{tipoDeClase.horas}
+				   </h:column>					   
+				</h:dataTable>
+				</h:form>
+            </div>
+            <div class="col-md-6">
+            	<h4>Clase</h4>
+            	<h:form>
+				<h:dataTable value="#{claseMB.all}"  var="clase" styleClass="table">
+				    <h:column>
+				      <f:facet name = "header">Nombre de clase</f:facet>
+					  #{clase.tipoDeClse.nombre}
+				   </h:column>	
+				   <h:column>
+				      <f:facet name = "header">Profesor</f:facet>
+					  #{clase.profesor.nombre}
+				   </h:column>					   
+				</h:dataTable>
+				</h:form>
+            </div>
+        </div>
+    </div>
+	</ui:define>
+</ui:composition>
+</html>

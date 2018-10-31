@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<ui:composition template="/WEB-INF/template/template.xhtml">
+	<ui:define name="title">
+		Manejo de Socios
+	</ui:define>
+	<ui:define name="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 text-center">
+                <h2>Manejo de Profesores</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 text-right">
+	            <h:form>
+			       <h:commandLink styleClass="btn btn-success" action="#{profesorMB.showCreateView()}">Nuevo Profesor
+			 	      <i class="fa fa-plus"></i>
+			       </h:commandLink>
+		       </h:form>	
+            </div>            
+        </div>
+
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1">
+            	<h:form>
+				<h:dataTable value="#{profesorMB.all}"  var = "profesor" styleClass="table">
+				   <h:column>    				
+				      <f:facet name = "header">id</f:facet>    				
+					  #{profesor.id}
+				   </h:column>	
+				    <h:column>
+				      <f:facet name = "header">Nro. Empleado</f:facet>
+					  #{profesor.nroEmpleado}
+				   </h:column>	
+				   <h:column>
+				      <f:facet name = "header">DNI</f:facet>
+					  #{profesor.dni}
+				   </h:column>					   
+				   <h:column>
+				      <f:facet name = "header">Nombre</f:facet>
+					 #{profesor.nombre}
+				   </h:column>				   
+				   <h:column>
+				      <f:facet name = "header">Apellido</f:facet>
+					 #{profesor.apellido}
+				   </h:column>		   
+				   <h:column>
+				      <f:facet name = "header">Email</f:facet>
+				       #{profesor.mail}
+				   </h:column>			   
+				   <h:column>
+				      <f:facet name = "header">Domicilio</f:facet>
+				       #{profesor.domicilio}
+				   </h:column>
+				   <h:column>
+				  	  <f:facet name = "header">Sueldo</f:facet>
+				  	  #{profesor.sueldoBasico}
+				   </h:column>
+				   <h:column>
+				  	  <f:facet name = "header">Precio Horas</f:facet>
+				  	  #{profesor.precioHs}
+				   </h:column>
+				   <h:column>
+				  	  <f:facet name = "header">Horas</f:facet>
+				  	  #{profesor.horas}
+				   </h:column>
+				   <h:column>
+				       <f:facet name = "header">Acciones</f:facet>
+				       <h:commandLink styleClass="btn btn-xs btn-warning btn-sq-xs" 
+				       		action="#{profesorMB.showEditView(profesor)}" p:data-click-on="enter">
+				 	      <i class="fa fa-pencil" aria-hidden="true"></i>
+				       </h:commandLink>					   
+				   </h:column>
+				</h:dataTable>
+				</h:form>
+            </div>
+        </div>
+    </div>
+	</ui:define>
+</ui:composition>
+</html>

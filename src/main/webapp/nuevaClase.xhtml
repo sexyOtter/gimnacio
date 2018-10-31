@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<ui:composition template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="title">
+		Nueva Clase
+	</ui:define>
+	<ui:define name="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-8 col-xs-offset-2 text-center">
+					<h2 id="titulo" class="text-center">
+						Nueva Clase
+					</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1">
+					<h:form>
+						<h:messages styleClass="list-group"
+							warnClass="list-group-item list-group-item-danger"
+							errorClass="list-group-item list-group-item-danger"
+							infoClass="list-group-item list-group-item-success" />
+						<div class="row">
+							<div class="col-md-6 form-group">
+								<label>Profesor</label>
+								<h:selectOneMenu value="#{claseMB.profesorSeleccionado}"
+										styleClass="form-control">
+										<f:selectItems value="#{claseMB.profesores}"
+												var="abono"
+												itemValue="#{abono.id}" 
+												itemLabel="#{abono.nombre}"/>
+								</h:selectOneMenu>
+							</div>
+							<div class="col-md-6 form-group">
+								<label>Tipo de clase</label>
+								<h:selectOneMenu value="#{claseMB.tipoDeClaseSeleccionada}"
+										styleClass="form-control">
+										<f:selectItems value="#{claseMB.tiposDeClase}"
+												var="abono"
+												itemValue="#{abono.id}" 
+												itemLabel="#{abono.nombre}"/>
+								</h:selectOneMenu>
+							</div>
+						</div>
+						<div class="row">
+							<div class="text-right">
+								<h:outputLink styleClass="btn btn-primary"
+									value="admClase.xhtml">Volver</h:outputLink>
+								<h:commandLink
+									styleClass="btn btn-success"
+									action="#{claseMB.create()}"
+									p:data-click-on="enter">
+										Crear
+								</h:commandLink>
+							</div>
+						</div>
+					</h:form>
+					<h:form>
+						
+						
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
